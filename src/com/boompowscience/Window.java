@@ -25,18 +25,13 @@ public class Window {
                 JFrame frame = new JFrame("DinoBuilding");
 
                 try {
-                    UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-                } catch (ClassNotFoundException ex) {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
                     ex.printStackTrace();
                 }
 
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 frame.setResizable(false);
-                try {
-                    frame.add(new MainView());
-                } catch (FontFormatException | IOException e) {
-                    e.printStackTrace();
-                }
                 frame.pack();
                 frame.setSize(screenWidth, screenHeight);
                 frame.setVisible(true);
